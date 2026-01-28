@@ -1,0 +1,1 @@
+(function(){"use strict";let e=null,s=3e4;self.onmessage=function(r){const{type:t,period:n}=r.data;t==="start"?(n&&(s=n),l()):t==="stop"?a():t==="ping"&&self.postMessage({type:"pong"})};function l(){a(),e=setInterval(()=>{self.postMessage({type:"heartbeat"})},s),self.postMessage({type:"heartbeat"})}function a(){e&&(clearInterval(e),e=null)}})();
